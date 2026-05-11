@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛡️ PhishGuard AI - Enterprise Threat Intelligence Platform
 
-## Getting Started
+PhishGuard AI is an industry-grade Security Operations Center (SOC) tool designed to automate the detection, analysis, and remediation of email-borne threats. It combines AI-driven contextual analysis (Gemma-4) with deep forensic header inspection and multi-engine threat intelligence.
 
-First, run the development server:
+## 📺 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![PhishGuard Demo](media/screen-recording-2026-05-12-at-002230_jVWHd0FB.mov)
+
+## ✨ Core Features
+
+- **SOC Intelligence Center**: Live monitoring dashboard with threat distribution, geo-mapping simulation, and attack trend analytics.
+- **AI-Driven Incident Reporting**: Generates executive-ready security reports with **MITRE ATT&CK®** mapping and automated remediation steps.
+
+## 📸 Platform Screenshots
+
+<p align="center">
+  <img src="media/dashboard.png" width="45%" alt="Dashboard" />
+  <img src="media/analysis.png" width="45%" alt="Analysis" />
+</p>
+<p align="center">
+  <img src="media/details.png" width="45%" alt="Technical Details" />
+  <img src="media/report.png" width="45%" alt="Incident Report" />
+</p>
+<p align="center">
+  <img src="media/summary.png" width="90%" alt="Executive Summary" />
+</p>
+
+## 🏗️ Architecture & Pipeline
+
+```mermaid
+graph TD
+    User((Security Analyst)) -->|Scan Request| App[Next.js SOC Interface]
+    App -->|POST /api/scan| API[API Core]
+    
+    subgraph Analysis Pipeline
+        API -->|Parse| Headers[Header Forensics]
+        API -->|Detonate| Sandbox[Mock Payload Sandbox]
+        API -->|Fetch| Intel[Threat Intel: VT/AbuseIPDB/AlienVault]
+        API -->|Evaluate| AI[Gemma-4 Intelligence]
+    end
+    
+    AI -->|Structured JSON| Reporter[Incident Report Gen]
+    Reporter -->|MITRE Mapping| DB[(PostgreSQL Store)]
+    DB -->|Stream| Dash[SOC Dashboard]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technical Implementation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### AI Logic
+The system uses a multi-indicator prompt engineering strategy. It feeds technical header data and sandbox flags into **Gemini 2.5 Flash** (via `gemma-4-31b-it` fallback), which performs cross-indicator correlation to determine if a "polite" email is actually a sophisticated spear-phishing attempt.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Security Stack
+- **AI Engine**: Google Gemini (Gemma-4 Logic)
+- **Database**: Supabase (PostgreSQL)
+- **Frontend**: Next.js 14+ / Framer Motion / Lucide
+- **Infrastructure**: Docker / Prisma ORM
 
-## Learn More
+## 🔌 API Documentation
+The API is fully documented at `/docs`. It supports programmatic integration for custom SIEM/SOAR pipelines.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Developed for professional portfolio demonstration. PhishGuard AI showcases senior-level engineering in AI, Security, and Enterprise UI/UX.
