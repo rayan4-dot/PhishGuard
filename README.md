@@ -2,13 +2,8 @@
 
 PhishGuard AI is an industry-grade Security Operations Center (SOC) tool designed to automate the detection, analysis, and remediation of email-borne threats. It combines AI-driven contextual analysis (Gemma-4) with deep forensic header inspection and multi-engine threat intelligence.
 
-## 📺 Live Demo
-
 <div align="center">
-  <a href="media/demo.mp4">
-    <img src="media/dashboard.png" width="100%" alt="PhishGuard Demo - Click to Watch" />
-    <br />
-  </a>
+  <img src="media/gifdemo.gif" width="100%" alt="PhishGuard Live Demo" />
 </div>
 
 ## ✨ Core Features
