@@ -5,9 +5,10 @@ PhishGuard AI is an industry-grade Security Operations Center (SOC) tool designe
 ## 📺 Live Demo
 
 <div align="center">
-  <video src="https://raw.githubusercontent.com/rayan4-dot/PhishGuard/main/media/demo.mp4" width="100%" controls autoplay muted loop>
-    Your browser does not support the video tag.
-  </video>
+  <a href="media/demo.mp4">
+    <img src="media/dashboard.png" width="100%" alt="PhishGuard Demo - Click to Watch" />
+    <br />
+  </a>
 </div>
 
 ## ✨ Core Features
