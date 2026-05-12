@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Scan {
+  id            String   @id @default(cuid())
+  shortId       String?  @unique
+  emailContent  String   @db.Text
+  sender        String?
+  subject       String?
+  threatScore   Int      @default(0)
+  aiAnalysis    String?  @db.Text
+  urlReputation Json?
+  status        String   @default("COMPLETED")
+  createdAt     DateTime @default(now())
+}

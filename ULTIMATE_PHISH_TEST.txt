@@ -1,0 +1,20 @@
+Authentication-Results: spf=fail (google.com: domain of support@security-alerts-paypal.com does not designate 185.73.12.44 as permitted sender) dkim=fail dmarc=fail
+Received: from [185.73.12.44] by mx.google.com with ESMTPS id p22si12345678pja.123
+Return-Path: <malicious-actor@hacker-network.ru>
+From: "PayPal Security Team" <support@security-alerts-paypal.com>
+Subject: CRITICAL: Your account has been limited - Action Required
+
+Dear Valued Customer,
+
+We noticed some unusual activity on your PayPal account. For your protection, we have temporarily limited your account access until you verify your identity.
+
+To restore your access, please download the attached Security Verification Tool and follow the instructions.
+
+[ATTACHMENT DETECTED]: Verify_Account_Identity.pdf.exe
+
+IMPORTANT: You must complete this verification within 24 hours to avoid permanent account suspension and loss of remaining funds.
+
+Verify Now: https://security-verify-paypal.com/auth/login?ref=12345
+
+Thank you,
+PayPal Global Security Operations
